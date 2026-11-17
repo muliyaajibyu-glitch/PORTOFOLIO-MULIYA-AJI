@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muliya Aji | Customer Experience, Quality Assurance & Telesales Specialist</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#080d1a',
+                        },
+                        royal: {
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities & Scroll Reveal Animations */
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.08), 0 8px 15px -6px rgba(37, 99, 235, 0.06);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-royal-600 selection:text-white">
+
+    <!-- Toast Notification for Copy Actions -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-navy-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3">
+            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+            </span>
+            <span id="toast-message" class="text-sm font-medium">Berhasil disalin ke clipboard!</span>
+        </div>
+    </div>
+
+    <!-- 1. STICKY NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand / Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-navy-900 via-royal-700 to-royal-600 flex items-center justify-center text-white font-display font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
+                        MA
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-navy-900 text-lg tracking-tight block leading-none">MULIYA AJI</span>
+                        <span class="text-[11px] font-semibold text-royal-600 uppercase tracking-wider">CX • QA • Telesales</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#tentang" class="text-sm font-medium text-slate-600 hover:text-royal-600 transition-colors">Tentang</a>
+                    <a href="#pilar" class="text-sm font-medium text-slate-600 hover:text-royal-600 transition-colors">Pilar Keunggulan</a>
+                    <a href="#keahlian" class="text-sm font-medium text-slate-600 hover:text-royal-600 transition-colors">Keahlian</a>
+                    <a href="#pengalaman" class="text-sm font-medium text-slate-600 hover:text-royal-600 transition-colors">Pengalaman</a>
+                    <a href="#pendidikan" class="text-sm font-medium text-slate-600 hover:text-royal-600 transition-colors">Pendidikan</a>
+                </nav>
+
+                <!-- CTA Button & Mobile Menu Trigger -->
+                <div class="flex items-center gap-3">
+                    <a href="#kontak" class="inline-flex items-center gap-2 bg-navy-900 hover:bg-royal-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all duration-200">
+                        <span>Hubungi Saya</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <button id="mobile-menu-btn" aria-label="Buka Menu" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-5 space-y-2 shadow-lg">
+            <a href="#tentang" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-royal-600">Tentang Saya</a>
+            <a href="#pilar" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-royal-600">Pilar Keunggulan</a>
+            <a href="#keahlian" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-royal-600">Keahlian Utama</a>
+            <a href="#pengalaman" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-royal-600">Pengalaman Kerja</a>
+            <a href="#pendidikan" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-royal-600">Pendidikan & Kontak</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="tentang" class="relative hero-pattern pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden border-b border-slate-200/80">
+        <!-- Decorative Ambient Gradient Blobs -->
+        <div class="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 rounded-full bg-royal-500/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-24 -mb-24 w-80 h-80 rounded-full bg-gold-500/10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+                
+                <!-- Left Column: Executive Introduction -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Dynamic Role Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/80 text-royal-700 text-xs sm:text-sm font-semibold shadow-sm">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-500 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold-500"></span>
+                        </span>
+                        <span>9+ Tahun Pengalaman • E-Commerce & Telekomunikasi</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-navy-900 tracking-tight leading-[1.12]">
+                            MULIYA AJI
+                        </h1>
+                        <p class="font-display text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-royal-600 via-royal-700 to-navy-900">
+                            Customer Experience, Quality Assurance & Telesales Specialist
+                        </p>
+                    </div>
+
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Profesional <strong class="text-navy-900 font-semibold">Customer Experience, Quality Assurance, dan Telesales</strong> dengan pengalaman lebih dari <strong class="text-navy-900 font-semibold">9 tahun (2017–2026)</strong> di industri E-Commerce dan Telekomunikasi. Terbukti unggul dalam mencapai target penjualan melalui komunikasi persuasif, menjaga retensi pelanggan (<em>repeat order</em>), menangani klien VIP (<em>Loyalty Platinum</em>), serta melakukan audit kualitas layanan berbasis SOP untuk meningkatkan kepuasan pelanggan (<em>Service Excellence</em>).
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#pengalaman" class="inline-flex items-center gap-2.5 bg-royal-600 hover:bg-royal-700 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-royal-600/20 transition-all hover:-translate-y-0.5">
+                            <span>Jelajahi Rekam Jejak</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <a href="#kontak" class="inline-flex items-center gap-2.5 bg-white hover:bg-slate-50 text-navy-900 border border-slate-300 font-semibold px-6 py-3.5 rounded-xl shadow-sm transition-all hover:-translate-y-0.5">
+                            <svg class="w-4 h-4 text-royal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>Jadwalkan Diskusi</span>
+                        </a>
+                    </div>
+
+                    <!-- Key Highlight Metrics (Animated Counters) -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200/80 max-w-xl">
+                        <div class="bg-white/90 p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="font-display text-2xl sm:text-3xl font-extrabold text-navy-900 flex items-baseline">
+                                <span class="counter" data-target="9">0</span><span class="text-gold-500 ml-0.5">+</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-medium text-slate-500 mt-1">Tahun Pengalaman</p>
+                        </div>
+                        <div class="bg-white/90 p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="font-display text-2xl sm:text-3xl font-extrabold text-royal-600 flex items-baseline">
+                                <span class="counter" data-target="4">0</span><span class="text-sm font-bold text-navy-900 ml-1.5">Tier</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-medium text-slate-500 mt-1">Jenjang Karier Shopee</p>
+                        </div>
+                        <div class="bg-white/90 p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="font-display text-2xl sm:text-3xl font-extrabold text-navy-900 flex items-baseline">
+                                <span class="counter" data-target="100">0</span><span class="text-gold-500 ml-0.5">%</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-medium text-slate-500 mt-1">Komitmen SOP & CX</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Bespoke Executive Visual Illustration (SVG Dashboard & CX Ecosystem) -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-lg">
+                        <!-- Floating Top Badge -->
+                        <div class="hidden sm:flex items-center gap-3 bg-white px-4 py-3 rounded-2xl shadow-xl border border-slate-100 absolute -top-5 -left-6 z-20 animate-float">
+                            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-gold-600">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-navy-900">VIP Loyalty Platinum</p>
+                                <p class="text-[11px] text-slate-500">Premium Client Handling</p>
+                            </div>
+                        </div>
+
+                        <!-- Main Custom SVG Illustration -->
+                        <div class="bg-gradient-to-br from-navy-900 via-navy-800 to-royal-900 rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-700/70 relative overflow-hidden">
+                            <svg viewBox="0 0 500 430" class="w-full h-auto rounded-2xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="cardGrad" x1="0" y1="0" x2="500" y2="430" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#1e293b"/>
+                                        <stop offset="100%" stop-color="#0f172a"/>
+                                    </linearGradient>
+                                    <linearGradient id="blueGlow" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#1d4ed8"/>
+                                    </linearGradient>
+                                    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+                                        <stop offset="0%" stop-color="#fbbf24"/>
+                                        <stop offset="100%" stop-color="#f59e0b"/>
+                                    </linearGradient>
+                                    <linearGradient id="chartArea" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+                                        <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Background Canvas -->
+                                <rect width="500" height="430" rx="20" fill="url(#cardGrad)"/>
+                                <circle cx="430" cy="60" r="95" fill="#2563eb" fill-opacity="0.14"/>
+                                <circle cx="70" cy="370" r="85" fill="#f59e0b" fill-opacity="0.1"/>
+
+                                <!-- Top Executive Header Strip -->
+                                <rect x="24" y="22" width="452" height="58" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+                                <circle cx="56" cy="51" r="18" fill="url(#blueGlow)"/>
+                                <text x="56" y="56" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="13">MA</text>
+                                <text x="86" y="47" fill="#f8fafc" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="13">MULIYA AJI — EXECUTIVE PROFILE</text>
+                                <text x="86" y="64" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5">Jakarta Selatan • S.I.Kom (IISIP Jakarta)</text>
+                                <rect x="372" y="37" width="90" height="28" rx="8" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.4"/>
+                                <circle cx="386" cy="51" r="4" fill="#10b981"/>
+                                <text x="396" y="55" fill="#34d399" font-family="Inter, sans-serif" font-weight="600" font-size="10.5">2017–2026</text>
+
+                                <!-- Left Card: Telesales & Conversion Growth -->
+                                <rect x="24" y="96" width="256" height="175" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+                                <text x="42" y="122" fill="#e2e8f0" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="12">Telesales &amp; Repeat Order</text>
+                                <text x="42" y="138" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">Consultative Selling &amp; Retention</text>
+                                
+                                <!-- Growth Chart Curve -->
+                                <path d="M42 232 C85 225, 110 198, 148 192 C185 186, 212 156, 258 146 L258 248 L42 248 Z" fill="url(#chartArea)"/>
+                                <path d="M42 232 C85 225, 110 198, 148 192 C185 186, 212 156, 258 146" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="148" cy="192" r="4.5" fill="#ffffff" stroke="#3b82f6" stroke-width="2.5"/>
+                                <circle cx="258" cy="146" r="5.5" fill="#fbbf24" stroke="#ffffff" stroke-width="2"/>
+                                <rect x="196" y="114" width="66" height="22" rx="6" fill="url(#goldGrad)"/>
+                                <text x="229" y="129" text-anchor="middle" fill="#0f172a" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="10.5">TARGET HIT</text>
+
+                                <!-- Right Card: QA Audit & SOP Compliance Gauge -->
+                                <rect x="296" y="96" width="180" height="175" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.2"/>
+                                <text x="314" y="122" fill="#e2e8f0" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="12">QA Calibration</text>
+                                <text x="314" y="138" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10">SOP &amp; 1-on-1 Coaching</text>
+                                
+                                <!-- Circular Progress Ring -->
+                                <circle cx="386" cy="196" r="38" stroke="#334155" stroke-width="8"/>
+                                <circle cx="386" cy="196" r="38" stroke="#f59e0b" stroke-width="8" stroke-dasharray="238" stroke-dashoffset="18" stroke-linecap="round" transform="rotate(-90 386 196)"/>
+                                <text x="386" y="195" text-anchor="middle" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15">SOP</text>
+                                <text x="386" y="210" text-anchor="middle" fill="#fbbf24" font-family="Inter, sans-serif" font-weight="600" font-size="9.5">VERIFIED</text>
+
+                                <!-- Bottom Card: Omnichannel & CRM Stack -->
+                                <rect x="24" y="287" width="452" height="118" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+                                <text x="42" y="313" fill="#e2e8f0" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="12">Ekosistem CRM, Eskalasi L2 &amp; Omnichannel CX</text>
+                                
+                                <!-- Pill Badges inside SVG -->
+                                <rect x="42" y="328" width="96" height="28" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-opacity="0.5"/>
+                                <text x="90" y="346" text-anchor="middle" fill="#93c5fd" font-family="Inter, sans-serif" font-weight="600" font-size="10.5">Salesforce</text>
+
+                                <rect x="148" y="328" width="96" height="28" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-opacity="0.5"/>
+                                <text x="196" y="346" text-anchor="middle" fill="#93c5fd" font-family="Inter, sans-serif" font-weight="600" font-size="10.5">Siebel CRM</text>
+
+                                <rect x="254" y="328" width="92" height="28" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-opacity="0.5"/>
+                                <text x="300" y="346" text-anchor="middle" fill="#93c5fd" font-family="Inter, sans-serif" font-weight="600" font-size="10.5">Zendesk</text>
+
+                                <rect x="356" y="328" width="102" height="28" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-opacity="0.6"/>
+                                <text x="407" y="346" text-anchor="middle" fill="#fcd34d" font-family="Inter, sans-serif" font-weight="600" font-size="10.5">L2 Payment</text>
+
+                                <!-- Bottom Career Milestone Bar -->
+                                <rect x="42" y="368" width="416" height="22" rx="6" fill="#1e293b"/>
+                                <rect x="42" y="368" width="104" height="22" rx="6" fill="#1d4ed8"/>
+                                <rect x="146" y="368" width="104" height="22" fill="#2563eb"/>
+                                <rect x="250" y="368" width="104" height="22" fill="#3b82f6"/>
+                                <rect x="354" y="368" width="104" height="22" rx="6" fill="#f59e0b"/>
+                                <text x="94" y="382" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-weight="600" font-size="9">Teleperformance</text>
+                                <text x="198" y="382" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-weight="600" font-size="9">Shopee (4 Tier)</text>
+                                <text x="302" y="382" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-weight="600" font-size="9">Ocistok B2B</text>
+                                <text x="406" y="382" text-anchor="middle" fill="#0f172a" font-family="Inter, sans-serif" font-weight="700" font-size="9">Exodo Sales</text>
+                            </svg>
+                        </div>
+
+                        <!-- Floating Bottom Right Card -->
+                        <div class="hidden sm:flex items-center gap-3 bg-white px-4 py-3 rounded-2xl shadow-xl border border-slate-100 absolute -bottom-5 -right-5 z-20 animate-float-delayed">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-royal-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-navy-900">QA Analyst &amp; Coach</p>
+                                <p class="text-[11px] text-slate-500">Audit SOP &amp; Kalibrasi Mutu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. VISUAL HIGHLIGHT SHOWCASE ("PILAR KEUNGGULAN PROFESIONAL") -->
+    <section id="pilar" class="py-20 bg-slate-50 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+                <span class="inline-block px-3.5 py-1.5 rounded-full bg-amber-100/80 text-gold-600 text-xs font-bold uppercase tracking-wider mb-3">
+                    Nilai Tambah &amp; Dampak Bisnis
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                    Pilar Keunggulan Profesional
+                </h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Kombinasi strategis antara kemampuan menutup penjualan (<em>closing</em>), penjaminan mutu layanan (<em>QA</em>), dan penanganan klien prioritas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar Card 1: High-Converting Telesales & Retention Engine -->
+                <div class="bg-white rounded-3xl border border-slate-200/90 overflow-hidden card-hover reveal flex flex-col">
+                    <div class="bg-gradient-to-br from-royal-600 to-navy-900 p-6 flex items-center justify-center">
+                        <!-- Custom SVG Illustration: Telesales Funnel -->
+                        <svg viewBox="0 0 280 150" class="w-full h-36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="16" width="240" height="118" rx="14" fill="#0f172a" fill-opacity="0.45" stroke="#60a5fa" stroke-opacity="0.35"/>
+                            <!-- Funnel Tiers -->
+                            <path d="M55 36 H225 L205 60 H75 Z" fill="#3b82f6"/>
+                            <text x="140" y="52" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-weight="600" font-size="10">PROSPEK &amp; EDUKASI PRODUK</text>
+                            <path d="M78 66 H202 L185 90 H95 Z" fill="#2563eb"/>
+                            <text x="140" y="82" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-weight="600" font-size="10">KOMUNIKASI PERSUASIF</text>
+                            <path d="M98 96 H182 L168 120 H112 Z" fill="#f59e0b"/>
+                            <text x="140" y="112" text-anchor="middle" fill="#0f172a" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="10">REPEAT ORDER</text>
+                        </svg>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold text-royal-600 uppercase tracking-wider mb-2">
+                            <span>01 • Revenue &amp; Retention</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">
+                            High-Converting Telesales &amp; Retention Engine
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-5 flex-1">
+                            Mengubah prospek menjadi pelanggan loyal melalui pendekatan konsultatif, edukasi manfaat produk yang jelas, serta manajemen <em>after-sales</em> dan <em>follow-up</em> terstruktur untuk mendorong pembelian ulang (<em>repeat order</em>).
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-slate-100">
+                            <span class="px-2.5 py-1 bg-blue-50 text-royal-700 text-xs font-semibold rounded-lg">Outbound Sales</span>
+                            <span class="px-2.5 py-1 bg-blue-50 text-royal-700 text-xs font-semibold rounded-lg">Repeat Order</span>
+                            <span class="px-2.5 py-1 bg-amber-50 text-gold-600 text-xs font-semibold rounded-lg">Target Driven</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar Card 2: Quality Assurance & 1-on-1 Coaching Framework -->
+                <div class="bg-white rounded-3xl border border-slate-200/90 overflow-hidden card-hover reveal flex flex-col" style="transition-delay: 100ms;">
+                    <div class="bg-gradient-to-br from-navy-900 to-slate-800 p-6 flex items-center justify-center">
+                        <!-- Custom SVG Illustration: QA Audit & Coaching -->
+                        <svg viewBox="0 0 280 150" class="w-full h-36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="16" width="240" height="118" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-opacity="0.3"/>
+                            <!-- Checklist Bars -->
+                            <rect x="38" y="34" width="130" height="22" rx="6" fill="#0f172a"/>
+                            <circle cx="51" cy="45" r="5" fill="#10b981"/>
+                            <rect x="64" y="42" width="90" height="6" rx="3" fill="#cbd5e1"/>
+
+                            <rect x="38" y="64" width="130" height="22" rx="6" fill="#0f172a"/>
+                            <circle cx="51" cy="75" r="5" fill="#10b981"/>
+                            <rect x="64" y="72" width="76" height="6" rx="3" fill="#cbd5e1"/>
+
+                            <rect x="38" y="94" width="130" height="22" rx="6" fill="#0f172a"/>
+                            <circle cx="51" cy="105" r="5" fill="#f59e0b"/>
+                            <rect x="64" y="102" width="84" height="6" rx="3" fill="#fbbf24"/>
+
+                            <!-- QA Shield -->
+                            <path d="M212 36 L242 48 V76 C242 96 228 110 212 116 C196 110 182 96 182 76 V48 L212 36 Z" fill="#2563eb" stroke="#93c5fd" stroke-width="2"/>
+                            <path d="M202 75 L209 82 L223 67" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold text-royal-600 uppercase tracking-wider mb-2">
+                            <span>02 • Operational Excellence</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">
+                            Quality Assurance &amp; 1-on-1 Coaching Framework
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-5 flex-1">
+                            Berpengalaman mengaudit tim lintas divisi (<em>L2 Marketing, Business Development, Product CS</em>) di Shopee, melakukan kalibrasi rekaman panggilan/chat/email, serta membimbing agen melalui <em>Coaching 1-on-1</em> sesuai SOP.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-slate-100">
+                            <span class="px-2.5 py-1 bg-blue-50 text-royal-700 text-xs font-semibold rounded-lg">SOP Audit</span>
+                            <span class="px-2.5 py-1 bg-blue-50 text-royal-700 text-xs font-semibold rounded-lg">QA Calibration</span>
+                            <span class="px-2.5 py-1 bg-amber-50 text-gold-600 text-xs font-semibold rounded-lg">1-on-1 Coaching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar Card 3: VIP Loyalty Platinum & Omnichannel CX -->
+                <div class="bg-white rounded-3xl border border-slate-200/90 overflow-hidden card-hover reveal flex flex-col" style="transition-delay: 200ms;">
+                    <div class="bg-gradient-to-br from-slate-900 via-navy-900 to-amber-900/90 p-6 flex items-center justify-center">
+                        <!-- Custom SVG Illustration: VIP Platinum Card & Omnichannel -->
+                        <svg viewBox="0 0 280 150" class="w-full h-36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="34" y="22" width="212" height="106" rx="16" fill="#0f172a" stroke="#f59e0b" stroke-width="1.8"/>
+                            <circle cx="212" cy="54" r="24" fill="#f59e0b" fill-opacity="0.18"/>
+                            <!-- Crown Icon -->
+                            <path d="M199 60 L203 47 L212 54 L221 47 L225 60 H199 Z" fill="#fbbf24"/>
+                            <text x="52" y="52" fill="#fbbf24" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="11" letter-spacing="1">LOYALTY PLATINUM</text>
+                            <text x="52" y="70" fill="#ffffff" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="13">VIP &amp; L2 Escalation</text>
+                            <rect x="52" y="86" width="60" height="22" rx="6" fill="#1e293b"/>
+                            <text x="82" y="100" text-anchor="middle" fill="#93c5fd" font-family="Inter, sans-serif" font-weight="600" font-size="9.5">Payment</text>
+                            <rect x="118" y="86" width="60" height="22" rx="6" fill="#1e293b"/>
+                            <text x="148" y="100" text-anchor="middle" fill="#93c5fd" font-family="Inter, sans-serif" font-weight="600" font-size="9.5">SocMed</text>
+                            <rect x="184" y="86" width="46" height="22" rx="6" fill="#1e293b"/>
+                            <text x="207" y="100" text-anchor="middle" fill="#34d399" font-family="Inter, sans-serif" font-weight="600" font-size="9.5">Voice</text>
+                        </svg>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold text-royal-600 uppercase tracking-wider mb-2">
+                            <span>03 • Client Experience</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-navy-900 mb-3">
+                            VIP Loyalty Platinum &amp; Omnichannel CX
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-5 flex-1">
+                            Teruji menangani pelanggan eksklusif <em>Loyalty Platinum</em>, penyelesaian eskalasi pembayaran dan <em>refund</em> tingkat lanjut (L2), serta pengelolaan komunitas media sosial korporat dengan empati tinggi.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-slate-100">
+                            <span class="px-2.5 py-1 bg-amber-50 text-gold-600 text-xs font-semibold rounded-lg">VIP Platinum</span>
+                            <span class="px-2.5 py-1 bg-blue-50 text-royal-700 text-xs font-semibold rounded-lg">L2 Payment</span>
+                            <span class="px-2.5 py-1 bg-blue-50 text-royal-700 text-xs font-semibold rounded-lg">Omnichannel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CORE COMPETENCIES (KEAHLIAN UTAMA) -->
+    <section id="keahlian" class="py-20 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
+                <div>
+                    <span class="inline-block px-3.5 py-1.5 rounded-full bg-blue-50 text-royal-600 text-xs font-bold uppercase tracking-wider mb-3">
+                        Kompetensi &amp; Perangkat Kerja
+                    </span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                        Keahlian Utama (Core Competencies)
+                    </h2>
+                </div>
+
+                <!-- Interactive Skill Category Filter Tabs -->
+                <div class="inline-flex flex-wrap p-1.5 bg-slate-100 rounded-2xl border border-slate-200/80" role="tablist">
+                    <button type="button" onclick="filterSkills('all', this)" class="skill-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-navy-900 text-white shadow-sm transition-all">
+                        Semua Keahlian
+                    </button>
+                    <button type="button" onclick="filterSkills('sales', this)" class="skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-navy-900 transition-all">
+                        Sales &amp; Retention
+                    </button>
+                    <button type="button" onclick="filterSkills('cx', this)" class="skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-navy-900 transition-all">
+                        CX &amp; Quality Assurance
+                    </button>
+                    <button type="button" onclick="filterSkills('tools', this)" class="skill-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-navy-900 transition-all">
+                        Tools &amp; Bahasa
+                    </button>
+                </div>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Category 1: Sales & Retention -->
+                <div data-skill-cat="sales" class="skill-card bg-slate-50/70 rounded-3xl p-7 border border-slate-200/90 card-hover reveal">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-2xl bg-royal-600 text-white flex items-center justify-center shadow-md shadow-royal-600/20">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-navy-900">Sales &amp; Retention</h3>
+                            <p class="text-xs font-medium text-slate-500">Akuisisi Pelanggan, Edukasi Produk &amp; Repeat Order</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Outbound Telesales</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Consultative Selling</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Lead Conversion</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">After-Sales Service</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Repeat Order Management</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Customer Experience & QA -->
+                <div data-skill-cat="cx" class="skill-card bg-slate-50/70 rounded-3xl p-7 border border-slate-200/90 card-hover reveal">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-2xl bg-navy-900 text-gold-400 flex items-center justify-center shadow-md">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-navy-900">Customer Experience &amp; QA</h3>
+                            <p class="text-xs font-medium text-slate-500">Penjaminan Mutu, Eskalasi L2 &amp; VIP Handling</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Quality Assurance Audit</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">SOP Calibration</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">1-on-1 Agent Coaching</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">VIP / Platinum Client Handling</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">L2 Payment &amp; Refund Resolution</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Social Media Community Management</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Tools & Software -->
+                <div data-skill-cat="tools" class="skill-card bg-slate-50/70 rounded-3xl p-7 border border-slate-200/90 card-hover reveal">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-100 text-royal-700 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-navy-900">Tools &amp; Software</h3>
+                            <p class="text-xs font-medium text-slate-500">Sistem CRM, Analisis Data &amp; Produksi Konten</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold shadow-xs">Salesforce</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold shadow-xs">Siebel CRM</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold shadow-xs">Zendesk</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Microsoft Excel (Data Analysis &amp; Reporting)</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Microsoft Word</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Adobe Photoshop</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Adobe Illustrator</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-navy-900 text-sm font-semibold shadow-xs">Final Cut Pro</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: Bahasa -->
+                <div data-skill-cat="tools" class="skill-card bg-slate-50/70 rounded-3xl p-7 border border-slate-200/90 card-hover reveal">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-gold-600 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-navy-900">Kemampuan Bahasa</h3>
+                            <p class="text-xs font-medium text-slate-500">Komunikasi Lisan &amp; Tertulis Lintas Platform</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-navy-900 text-sm">Bahasa Indonesia</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold">Aktif (Native)</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2">
+                                <div class="bg-royal-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-navy-900 text-sm">Bahasa Inggris</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-royal-700 text-xs font-bold">Profesional</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2">
+                                <div class="bg-gold-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. INTERACTIVE CAREER JOURNEY (PENGALAMAN KERJA) -->
+    <section id="pengalaman" class="py-20 bg-slate-50 border-b border-slate-200/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+                <span class="inline-block px-3.5 py-1.5 rounded-full bg-blue-100/80 text-royal-700 text-xs font-bold uppercase tracking-wider mb-3">
+                    Rekam Jejak 2017 – 2026
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+                    Perjalanan Karier &amp; Pencapaian
+                </h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">
+                    Progres karier berkelanjutan selama lebih dari 9 tahun di perusahaan <em>E-Commerce</em> dan Telekomunikasi terkemuka.
+                </p>
+            </div>
+
+            <!-- Interactive Company Filter Bar -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-12 reveal">
+                <button type="button" onclick="filterExperience('all', this)" class="exp-tab active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-navy-900 text-white shadow-md transition-all">
+                    Semua Pengalaman (4)
+                </button>
+                <button type="button" onclick="filterExperience('exodo', this)" class="exp-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-royal-400 transition-all">
+                    PT Exodo Ecommerse (2023–2026)
+                </button>
+                <button type="button" onclick="filterExperience('ocistok', this)" class="exp-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-royal-400 transition-all">
+                    Ocistok.com (2023)
+                </button>
+                <button type="button" onclick="filterExperience('shopee', this)" class="exp-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-royal-400 transition-all">
+                    Shopee Indonesia • 4 Jenjang (2018–2022)
+                </button>
+                <button type="button" onclick="filterExperience('teleperformance', this)" class="exp-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-royal-400 transition-all">
+                    Teleperformance / Three (2017–2018)
+                </button>
+            </div>
+
+            <!-- Career Timeline Cards -->
+            <div class="space-y-8">
+
+                <!-- COMPANY 1: PT EXODO ECOMMERSE INNOVASIA -->
+                <article data-company="exodo" class="exp-card bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden card-hover reveal">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                            <div class="flex items-start sm:items-center gap-4">
+                                <!-- Custom SVG Emblem: Exodo -->
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-navy-900 flex items-center justify-center text-white shrink-0 shadow-md">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <h3 class="font-display text-xl sm:text-2xl font-extrabold text-navy-900">PT EXODO ECOMMERSE INNOVASIA</h3>
+                                        <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">Terbaru</span>
+                                    </div>
+                                    <p class="text-royal-600 font-bold text-sm sm:text-base mt-0.5">Telesales &amp; Customer Retention Specialist</p>
+                                </div>
+                            </div>
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-navy-900 text-xs sm:text-sm font-bold shrink-0 self-start sm:self-center">
+                                <svg class="w-4 h-4 text-royal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <span>September 2023 – Oktober 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                                <span class="text-xs font-extrabold text-royal-600 uppercase tracking-wider block mb-1.5">Konversi Penjualan</span>
+                                <p class="text-slate-700 text-sm leading-relaxed">
+                                    Melakukan panggilan keluar (<em>outbound sales</em>) dan komunikasi persuasif kepada calon pelanggan untuk menawarkan produk herbal sesuai kebutuhan konsumen hingga mencapai target penjualan perusahaan.
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                                <span class="text-xs font-extrabold text-royal-600 uppercase tracking-wider block mb-1.5">Edukasi Produk</span>
+                                <p class="text-slate-700 text-sm leading-relaxed">
+                                    Menyampaikan manfaat, keunggulan, serta panduan penggunaan produk secara jelas untuk membangun kepercayaan dan mendorong keputusan pembelian.
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                                <span class="text-xs font-extrabold text-gold-600 uppercase tracking-wider block mb-1.5">Retensi &amp; After-Sales</span>
+                                <p class="text-slate-700 text-sm leading-relaxed">
+                                    Menjalankan layanan purna jual (<em>after-sales</em>) dan <em>follow-up</em> berkala guna menjaga kepuasan pelanggan serta meningkatkan tingkat pembelian ulang (<em>repeat order</em>).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- COMPANY 2: PT OCOMMERCE CAPITAL INDONESIA (Ocistok.com) -->
+                <article data-company="ocistok" class="exp-card bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden card-hover reveal">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                            <div class="flex items-start sm:items-center gap-4">
+                                <!-- Custom SVG Emblem: Ocistok -->
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-royal-600 to-indigo-900 flex items-center justify-center text-white shrink-0 shadow-md">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-display text-xl sm:text-2xl font-extrabold text-navy-900">PT OCOMMERCE CAPITAL INDONESIA (Ocistok.com)</h3>
+                                    <p class="text-royal-600 font-bold text-sm sm:text-base mt-0.5">Outbound Sales Representative</p>
+                                </div>
+                            </div>
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-navy-900 text-xs sm:text-sm font-bold shrink-0 self-start sm:self-center">
+                                <svg class="w-4 h-4 text-royal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <span>Maret 2023 – Agustus 2023</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-6">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                                <span class="text-xs font-extrabold text-royal-600 uppercase tracking-wider block mb-1.5">Akuisisi Klien B2B/B2C</span>
+                                <p class="text-slate-700 text-sm leading-relaxed">
+                                    Menghubungi calon pelanggan terdaftar di platform <strong>Ocistok.com</strong> untuk memperkenalkan fitur, manfaat, dan keunggulan kompetitif layanan impor barang.
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                                <span class="text-xs font-extrabold text-gold-600 uppercase tracking-wider block mb-1.5">Pencapaian Target</span>
+                                <p class="text-slate-700 text-sm leading-relaxed">
+                                    Menganalisis kebutuhan bisnis pelanggan dan merekomendasikan solusi produk yang tepat guna memenuhi target penjualan bulanan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- COMPANY 3: PT SHOPEE INTERNATIONAL INDONESIA (4-Tier Career Progression) -->
+                <article data-company="shopee" class="exp-card bg-white rounded-3xl border-2 border-royal-600/20 shadow-md overflow-hidden card-hover reveal">
+                    <div class="bg-gradient-to-r from-navy-900 via-navy-800 to-royal-900 p-6 sm:p-8 text-white">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="flex items-start sm:items-center gap-4">
+                                <!-- Custom SVG Emblem: Shopee 4-Tier Progression -->
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white shrink-0 shadow-lg">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                </div>
+                                <div>
+                                    <div class="flex flex-wrap items-center gap-2.5">
+                                        <h3 class="font-display text-xl sm:text-2xl font-extrabold text-white">PT SHOPEE INTERNATIONAL INDONESIA</h3>
+                                        <span class="px-3 py-1 rounded-full bg-gold-500 text-navy-950 text-xs font-extrabold uppercase tracking-wide">
+                                            ★ Kenaikan 4 Jenjang Karier
+                                        </span>
+                                    </div>
+                                    <p class="text-blue-200 font-medium text-sm mt-1">Progresi Karier dari Community CS hingga Quality Assurance Analyst</p>
+                                </div>
+                            </div>
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-white text-xs sm:text-sm font-bold shrink-0 self-start sm:self-center">
+                                <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <span>Maret 2018 – Desember 2022</span>
+                            </div>
+                        </div>
+
+                        <!-- Visual 4-Step Career Ladder Bar -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mt-6 pt-5 border-t border-white/15">
+                            <div class="bg-white/10 rounded-xl px-3.5 py-2.5 border border-white/10">
+                                <span class="text-[10px] font-bold text-blue-300 uppercase">Tahap 1 • 2018–2019</span>
+                                <p class="text-xs font-bold text-white truncate">Community CS (SocMed)</p>
+                            </div>
+                            <div class="bg-white/10 rounded-xl px-3.5 py-2.5 border border-white/10">
+                                <span class="text-[10px] font-bold text-blue-300 uppercase">Tahap 2 • 2019–2021</span>
+                                <p class="text-xs font-bold text-white truncate">L2 Payment Specialist</p>
+                            </div>
+                            <div class="bg-white/10 rounded-xl px-3.5 py-2.5 border border-white/10">
+                                <span class="text-[10px] font-bold text-gold-400 uppercase">Tahap 3 • 2021</span>
+                                <p class="text-xs font-bold text-white truncate">Premium Service (VIP)</p>
+                            </div>
+                            <div class="bg-gold-500/20 rounded-xl px-3.5 py-2.5 border border-gold-400/50">
+                                <span class="text-[10px] font-bold text-gold-300 uppercase">Tahap 4 • 2021–2022</span>
+                                <p class="text-xs font-bold text-white truncate">Quality Assurance Analyst</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed 4 Roles inside Shopee -->
+                    <div class="p-6 sm:p-8 space-y-6 bg-white">
+                        <!-- Role 4 (Top): Quality Assurance Analyst -->
+                        <div class="relative pl-6 border-l-2 border-gold-500">
+                            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-gold-500 ring-4 ring-amber-100"></span>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                                <h4 class="font-display text-lg font-bold text-navy-900">1. Quality Assurance Analyst</h4>
+                                <span class="text-xs font-bold text-gold-600 bg-amber-50 px-3 py-1 rounded-full self-start">November 2021 – Desember 2022</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Melakukan audit dan pemantauan kualitas layanan tim <em>Tier L2 Marketing</em>, <em>Business Development</em>, dan <em>Product Customer Service</em> agar berjalan sesuai standar operasional (SOP).</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Melaksanakan kalibrasi rutin bersama tim QA melalui evaluasi rekaman panggilan, balasan email, dan <em>live chat</em> agen.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Memberikan <strong>Coaching 1-on-1</strong> kepada agen yang belum memenuhi standar SOP untuk meningkatkan performa layanan.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Role 3: Premium Service Specialist -->
+                        <div class="relative pl-6 border-l-2 border-royal-600">
+                            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-royal-600 ring-4 ring-blue-100"></span>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                                <h4 class="font-display text-lg font-bold text-navy-900">2. Premium Service Specialist (VIP Handling)</h4>
+                                <span class="text-xs font-bold text-royal-700 bg-blue-50 px-3 py-1 rounded-full self-start">Maret 2021 – November 2021</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Menangani keluhan serta memastikan kelancaran transaksi pelanggan eksklusif Shopee dengan status <strong>Loyalty Platinum</strong> di aplikasi maupun situs web.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Role 2: L2 Payment Inbound Specialist -->
+                        <div class="relative pl-6 border-l-2 border-royal-400">
+                            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-royal-400 ring-4 ring-blue-50"></span>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                                <h4 class="font-display text-lg font-bold text-navy-900">3. L2 Payment Inbound Specialist</h4>
+                                <span class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full self-start">September 2019 – Februari 2021</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Menyelesaikan kendala transaksi pembayaran dan pengembalian dana (<em>refund</em>) tingkat lanjut.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Menganalisis tren transaksi masuk dan menyusun laporan bulanan sebagai dasar perbaikan layanan (<em>Service Excellence</em>).</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Role 1: Community Customer Service -->
+                        <div class="relative pl-6 border-l-2 border-slate-300">
+                            <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-400 ring-4 ring-slate-100"></span>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                                <h4 class="font-display text-lg font-bold text-navy-900">4. Community Customer Service (Social Media)</h4>
+                                <span class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full self-start">Maret 2018 – September 2019</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Mengelola interaksi, pertanyaan, dan keluhan pelanggan serta menyampaikan informasi promo di kanal media sosial resmi Shopee Indonesia.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="text-royal-600 font-bold mt-0.5">•</span>
+                                    <span>Merancang konten media sosial yang relevan dengan <em>campaign</em> berjalan serta menganalisis sentimen pengguna sebagai bahan evaluasi perusahaan.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- COMPANY 4: PT TELEPERFORMANCE INDONESIA -->
+                <article data-company="teleperformance" class="exp-card bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden card-hover reveal">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                            <div class="flex items-start sm:items-center gap-4">
+                                <!-- Custom SVG Emblem: Teleperformance -->
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-navy-950 flex items-center justify-center text-white shrink-0 shadow-md">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-display text-xl sm:text-2xl font-extrabold text-navy-900">PT TELEPERFORMANCE INDONESIA</h3>
+                                    <p class="text-royal-600 font-bold text-sm sm:text-base mt-0.5">Customer Service Representative (Campaign Three Indonesia - HCPT)</p>
+                                </div>
+                            </div>
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-navy-900 text-xs sm:text-sm font-bold shrink-0 self-start sm:self-center">
+                                <svg class="w-4 h-4 text-royal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <span>April 2017 – Februari 2018</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-6">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <span class="text-sm font-bold text-navy-900">CSR Social Media</span>
+                                    <span class="text-xs font-semibold text-royal-600">Nov 2017 – Feb 2018</span>
+                                </div>
+                                <p class="text-slate-700 text-sm leading-relaxed">
+                                    Menangani keluhan pelanggan reguler maupun korporat serta mempromosikan penawaran paket melalui media sosial resmi Three Indonesia.
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <span class="text-sm font-bold text-navy-900">CSR Inbound Corporate</span>
+                                    <span class="text-xs font-semibold text-royal-600">Apr 2017 – Nov 2017</span>
+                                </div>
+                                <p class="text-slate-700 text-sm leading-relaxed">
+                                    Melayani panggilan masuk/keluar untuk penyelesaian kendala pelanggan korporat sekaligus melakukan penawaran penjualan (<em>upselling</em>) pulsa dan paket data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. EDUCATION & CONTACT SECTION -->
+    <section id="pendidikan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                
+                <!-- Education Card (Left 5 Columns) -->
+                <div class="lg:col-span-5 flex flex-col reveal">
+                    <div class="mb-6">
+                        <span class="inline-block px-3.5 py-1.5 rounded-full bg-blue-50 text-royal-600 text-xs font-bold uppercase tracking-wider mb-3">
+                            Latar Belakang Akademis
+                        </span>
+                        <h2 class="font-display text-3xl font-extrabold text-navy-900 tracking-tight">
+                            Pendidikan
+                        </h2>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-slate-50 to-blue-50/40 rounded-3xl p-8 border border-slate-200/90 flex-1 flex flex-col justify-between card-hover">
+                        <div>
+                            <!-- Custom SVG Graduation Illustration -->
+                            <div class="w-16 h-16 rounded-2xl bg-navy-900 text-gold-400 flex items-center justify-center mb-6 shadow-lg">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                            </div>
+
+                            <span class="inline-block px-3 py-1 rounded-lg bg-white border border-slate-200 text-royal-700 text-xs font-bold mb-3">
+                                Sarjana (S1)
+                            </span>
+                            <h3 class="font-display text-2xl font-extrabold text-navy-900 leading-snug">
+                                Institut Ilmu Sosial dan Ilmu Politik (IISIP) Jakarta
+                            </h3>
+                            <p class="text-royal-600 font-bold text-base mt-2">
+                                Sarjana Ilmu Komunikasi (<em>Bachelor of Communication Science</em>)
+                            </p>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-slate-200/80">
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Fondasi kuat dalam strategi komunikasi persuasif, komunikasi massa &amp; korporat, analisis audiens, serta penyampaian informasi yang terstruktur untuk mendukung performa <em>Customer Experience</em> dan <em>Telesales</em>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact & Interactive Actions (Right 7 Columns) -->
+                <div id="kontak" class="lg:col-span-7 flex flex-col reveal" style="transition-delay: 120ms;">
+                    <div class="mb-6">
+                        <span class="inline-block px-3.5 py-1.5 rounded-full bg-amber-100/80 text-gold-600 text-xs font-bold uppercase tracking-wider mb-3">
+                            Kolaborasi &amp; Rekrutmen
+                        </span>
+                        <h2 class="font-display text-3xl font-extrabold text-navy-900 tracking-tight">
+                            Mari Terhubung &amp; Berdiskusi
+                        </h2>
+                    </div>
+
+                    <div class="bg-navy-900 rounded-3xl p-8 sm:p-10 text-white shadow-2xl relative overflow-hidden flex-1 flex flex-col justify-between">
+                        <!-- Decorative Vector Pattern -->
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-royal-600/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+                        <div class="absolute bottom-0 left-0 w-48 h-48 bg-gold-500/10 rounded-full blur-2xl -ml-12 -mb-12 pointer-events-none"></div>
+
+                        <div class="relative z-10">
+                            <p class="text-slate-300 text-base leading-relaxed mb-8">
+                                Siap berkontribusi sebagai <strong class="text-white">Customer Experience Specialist, Quality Assurance Analyst, maupun Telesales &amp; Retention Lead</strong>. Klik tombol salin di bawah untuk menghubungi saya secara langsung.
+                            </p>
+
+                            <div class="space-y-4">
+                                <!-- Phone / WhatsApp Item -->
+                                <div class="bg-white/10 hover:bg-white/15 border border-white/15 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-400/30 text-emerald-400 flex items-center justify-center shrink-0">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                        </div>
+                                        <div>
+                                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Telepon / WhatsApp</span>
+                                            <span class="font-display text-lg font-bold text-white">0878-8503-1598</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="copyText('087885031598', 'Nomor telepon 0878-8503-1598 berhasil disalin!')" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white text-navy-900 hover:bg-gold-400 text-xs font-bold transition-colors cursor-pointer">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                        <span>Salin Nomor</span>
+                                    </button>
+                                </div>
+
+                                <!-- Email Item -->
+                                <div class="bg-white/10 hover:bg-white/15 border border-white/15 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-royal-500/25 border border-royal-400/30 text-blue-300 flex items-center justify-center shrink-0">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                        </div>
+                                        <div>
+                                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Email Profesional</span>
+                                            <span class="font-display text-lg font-bold text-white break-all">muliyaaji.byu@gmail.com</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="copyText('muliyaaji.byu@gmail.com', 'Alamat email muliyaaji.byu@gmail.com berhasil disalin!')" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white text-navy-900 hover:bg-gold-400 text-xs font-bold transition-colors cursor-pointer">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                        <span>Salin Email</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Footer Strip inside Contact Card -->
+                        <div class="relative z-10 mt-8 pt-6 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
+                            <div class="flex items-center gap-2.5 text-sm text-slate-300">
+                                <svg class="w-5 h-5 text-gold-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span><strong class="text-white">Jakarta Selatan, DKI Jakarta</strong> • Siap Bekerja WFO / Hybrid</span>
+                            </div>
+                            <a href="mailto:muliyaaji.byu@gmail.com?subject=Undangan%20Wawancara%20-%20Muliya%20Aji" class="text-xs font-bold text-gold-400 hover:text-gold-300 underline underline-offset-4">
+                                Kirim Email Langsung →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-400 py-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-royal-600 flex items-center justify-center text-white font-display font-extrabold text-sm">
+                    MA
+                </div>
+                <span class="font-display font-bold text-white text-sm">MULIYA AJI</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-xs">Customer Experience, Quality Assurance &amp; Telesales Specialist</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                © 2026 Muliya Aji. Portofolio Profesional • Jakarta Selatan, DKI Jakarta.
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // 2. Scroll Reveal Animation via IntersectionObserver
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 3. Animated Metric Counters
+        const counters = document.querySelectorAll('.counter');
+        let countersStarted = false;
+
+        const animateCounters = () => {
+            if (countersStarted) return;
+            countersStarted = true;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 1400; // ms
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out cubic
+                    const easedProgress = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(easedProgress * target);
+                    counter.innerText = currentVal;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                requestAnimationFrame(updateCount);
+            });
+        };
+
+        // Trigger counters immediately when hero is visible
+        window.addEventListener('load', () => {
+            setTimeout(animateCounters, 250);
+        });
+
+        // 4. Interactive Skill Category Filter
+        function filterSkills(category, btnElement) {
+            // Update active tab styling
+            document.querySelectorAll('.skill-tab').forEach(tab => {
+                tab.classList.remove('bg-navy-900', 'text-white', 'shadow-sm');
+                tab.classList.add('text-slate-600');
+            });
+            btnElement.classList.add('bg-navy-900', 'text-white', 'shadow-sm');
+            btnElement.classList.remove('text-slate-600');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.skill-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-skill-cat');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 20);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 5. Interactive Career Experience Filter
+        function filterExperience(company, btnElement) {
+            // Update active tab styling
+            document.querySelectorAll('.exp-tab').forEach(tab => {
+                tab.classList.remove('bg-navy-900', 'text-white', 'shadow-md', 'font-bold');
+                tab.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200', 'font-semibold');
+            });
+            btnElement.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200', 'font-semibold');
+            btnElement.classList.add('bg-navy-900', 'text-white', 'shadow-md', 'font-bold');
+
+            // Filter company cards
+            const expCards = document.querySelectorAll('.exp-card');
+            expCards.forEach(card => {
+                const cardCompany = card.getAttribute('data-company');
+                if (company === 'all' || cardCompany === company) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.classList.add('active');
+                    }, 20);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 6. Copy to Clipboard with Toast Notification (using execCommand fallback for iframe compatibility)
+        function copyText(text, successMessage) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.style.position = 'fixed';
+            tempInput.style.left = '-9999px';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMessage);
+            } catch (err) {
+                showToast('Gagal menyalin teks.');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            if (!toast || !toastMsg) return;
+
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
